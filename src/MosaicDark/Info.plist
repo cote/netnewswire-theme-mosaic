@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Name</key>
+	<string>Mosaic Dark</string>
+	<key>ThemeIdentifier</key>
+	<string>io.cote.netnewswire.themes.mosaic-dark</string>
+	<key>CreatorHomePage</key>
+	<string>https://cote.io/</string>
+	<key>CreatorName</key>
+	<string>Michael Cote</string>
+	<key>Version</key>
+	<integer>1</integer>
+</dict>
+</plist>

@@ -1,0 +1,387 @@
+/* Mosaic Dark - NCSA Mosaic / 1993-web aesthetic for NetNewsWire,
+   on a Solarized Dark palette. Same shape as Mosaic, only the token
+   block at :root differs (plus a tweaked image border treatment). */
+
+:root {
+	--mosaic-bg: #002b36;          /* solarized base03 */
+	--mosaic-fg: #93a1a1;          /* solarized base1  */
+	--mosaic-meta: #657b83;        /* solarized base00 */
+	--mosaic-rule: #586e75;        /* solarized base01 */
+	--mosaic-border: #586e75;
+	--mosaic-link: #268bd2;        /* solarized blue */
+	--mosaic-visited: #6c71c4;     /* solarized violet */
+	--mosaic-active: #dc322f;      /* solarized red */
+	--mosaic-code-bg: #073642;     /* solarized base02 */
+	--mosaic-quote-fg: #93a1a1;
+	--mosaic-mark-bg: #e6c96a;
+	--mosaic-mark-fg: #0a0a0a;     /* dark text on yellow stays readable */
+	--mosaic-footnote-bg: #93a1a1;
+	--mosaic-footnote-fg: #002b36;
+	--mosaic-footnote-pop-bg: #073642;
+	--mosaic-footnote-pop-fg: #93a1a1;
+	--mosaic-footnote-hover-bg: #6c71c4;
+}
+
+body {
+	margin-left: auto;
+	margin-right: auto;
+	word-wrap: break-word;
+	max-width: 44em;
+	background-color: var(--mosaic-bg);
+	color: var(--mosaic-fg);
+	font-family: "Times New Roman", Times, serif;
+	line-height: 1.5;
+}
+
+a, a:link { color: var(--mosaic-link); }
+a:visited { color: var(--mosaic-visited); }
+a:active { color: var(--mosaic-active); }
+
+[href] {
+	text-decoration: underline;
+}
+
+#nnwImageIcon {
+	width: 32px;
+	height: 32px;
+	margin-right: 0.2em;
+}
+
+.systemMessage {
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	transform: translateX(-55%) translateY(-50%);
+	-webkit-user-select: none;
+	cursor: default;
+	color: var(--mosaic-fg);
+	font-style: italic;
+}
+
+/* Feed header */
+body > header {
+	padding-bottom: 0.3em;
+}
+body > header + hr.double {
+	border: 0;
+	border-top: 3px double var(--mosaic-rule);
+	margin: 0.3em 0 1.2em 0;
+}
+body > header .headerTable {
+	width: 100%;
+	border-collapse: collapse;
+}
+body > header .headerTable td,
+body > header .headerTable th {
+	color: var(--mosaic-fg);
+	padding: 0.2em;
+	border: none;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 0.95rem;
+	font-style: italic;
+}
+body > header .headerTable td.avatar {
+	width: 33%;
+}
+body > header a,
+body > header a:link,
+body > header a:visited {
+	color: var(--mosaic-link);
+}
+
+.headerContainer a[href] {
+	color: var(--mosaic-link);
+}
+
+.avatar img,
+.feedIcon {
+	border: 1px solid var(--mosaic-border);
+}
+
+.rightAlign { text-align: end; }
+.leftAlign  { text-align: start; }
+
+/* Article title and dateline */
+.articleTitle h1 {
+	font-size: 2em;
+	font-weight: bold;
+	line-height: 1.15em;
+	padding-bottom: 0;
+	margin: 0 0 0.2em 0;
+}
+.articleTitle [href] {
+	color: var(--mosaic-link);
+	text-decoration: underline;
+}
+.articleTitle [href]:visited {
+	color: var(--mosaic-visited);
+}
+
+.articleDateline,
+.articleDatelineTitle {
+	margin-bottom: 5px;
+	font-style: italic;
+	font-size: 0.95em;
+	color: var(--mosaic-meta);
+}
+.articleDateline [href],
+.articleDatelineTitle [href] {
+	color: var(--mosaic-meta);
+	text-decoration: underline;
+}
+
+.externalLink {
+	margin-bottom: 5px;
+	font-style: italic;
+	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.articleBody {
+	margin-top: 1.2em;
+	line-height: 1.6em;
+	font-size: 1.5em;
+}
+
+/* Body headings inside fed content */
+.articleBody h1 { font-size: 1.6em; }
+.articleBody h2 { font-size: 1.4em; font-weight: bold; margin: 0.8em 0 0.2em 0; }
+.articleBody h3 { font-size: 1.2em; font-weight: bold; }
+.articleBody h4, .articleBody h5, .articleBody h6 { font-weight: bold; }
+
+/* Mosaic rule style */
+hr {
+	border: 0;
+	border-top: 1px solid var(--mosaic-rule);
+	margin: 1.2em 0;
+}
+hr.double {
+	border-top: 3px double var(--mosaic-rule);
+}
+
+/* Code: keep monospace but otherwise plain */
+code, pre {
+	font-family: "SF Mono", Menlo, "Courier New", Courier, monospace;
+	font-size: 0.85rem;
+	-webkit-hyphens: none;
+	color: var(--mosaic-fg);
+}
+pre {
+	max-width: 100%;
+	margin: 1em 0;
+	padding: 0.6em;
+	overflow: auto;
+	overflow-y: hidden;
+	word-wrap: normal;
+	word-break: normal;
+	line-height: 1.4286em;
+	border: 1px solid var(--mosaic-border);
+	background: var(--mosaic-code-bg);
+}
+
+.nnw-overflow {
+	overflow-x: auto;
+}
+
+/* Tables */
+.nnw-overflow table {
+	margin-bottom: 1px;
+	border-spacing: 0;
+	border: 1px solid var(--mosaic-border);
+	font-size: inherit;
+}
+.nnw-overflow table table {
+	margin-bottom: 0;
+	border: none;
+}
+.nnw-overflow td,
+.nnw-overflow th {
+	-webkit-hyphens: none;
+	word-break: normal;
+	border: 1px solid var(--mosaic-border);
+	border-top: none;
+	border-left: none;
+	padding: 5px;
+}
+.nnw-overflow tr :matches(td, th):last-child {
+	border-right: none;
+}
+.nnw-overflow
+	:matches(thead, tbody, tfoot):last-child
+	> tr:last-child
+	:matches(td, th) {
+	border-bottom: none;
+}
+.nnw-overflow td pre {
+	border: none;
+	padding: 0;
+	background: transparent;
+}
+.nnw-overflow table[border="0"] {
+	border-width: 0;
+}
+
+img,
+figure,
+video,
+div,
+object {
+	max-width: 100%;
+	height: auto !important;
+	margin: 0 auto;
+}
+img {
+	border: 1px solid var(--mosaic-border);
+}
+
+iframe {
+	max-width: 100%;
+	margin: 0 auto;
+}
+iframe.nnw-constrained {
+	max-height: 50vw;
+}
+
+figure {
+	margin: 1em 0;
+}
+figcaption {
+	font-size: 0.85em;
+	font-style: italic;
+	color: var(--mosaic-meta);
+	line-height: 1.3em;
+	text-align: center;
+}
+
+sup {
+	vertical-align: top;
+	position: relative;
+	bottom: 0.2rem;
+}
+sub {
+	vertical-align: bottom;
+	position: relative;
+	top: 0.2rem;
+}
+
+.iframeWrap {
+	position: relative;
+	display: block;
+	padding-top: 56.25%;
+}
+.iframeWrap iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100% !important;
+	width: 100% !important;
+}
+
+blockquote {
+	margin-inline-start: 0;
+	margin-inline-end: 0;
+	padding-inline-start: 1em;
+	border-inline-start: 3px double var(--mosaic-border);
+	font-style: italic;
+	color: var(--mosaic-quote-fg);
+}
+
+/* Mustard-yellow highlight for <mark> only. */
+.articleBody mark, mark {
+	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='50' viewBox='0 0 400 50' preserveAspectRatio='none'><defs><filter id='r' x='-2%25' y='-10%25' width='104%25' height='120%25'><feTurbulence type='fractalNoise' baseFrequency='0.05 0.7' numOctaves='2' seed='3'/><feDisplacementMap in='SourceGraphic' scale='5'/></filter></defs><rect x='4' y='4' width='392' height='42' fill='%23e6c96a' filter='url(%23r)'/></svg>");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	-webkit-box-decoration-break: clone;
+	box-decoration-break: clone;
+	padding: 0.05em 0.3em;
+	color: var(--mosaic-mark-fg);
+}
+.articleBody mark a, .articleBody mark a:visited,
+mark a, mark a:visited {
+	color: var(--mosaic-link);
+	text-decoration-color: var(--mosaic-link);
+}
+
+/* Feed Specific */
+.feedbin--article-wrap {
+	border-top: 1px solid var(--mosaic-rule);
+}
+
+/* Twitter */
+.twitterAvatar {
+	vertical-align: middle;
+	border: 1px solid var(--mosaic-border);
+	height: 1.7em;
+	width: 1.7em;
+}
+.twitterUsername {
+	line-height: 1.2;
+	margin-left: 4px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.twitterScreenName { font-size: 66%; }
+.twitterTimestamp { font-size: 66%; }
+
+/* Newsfoot footnote popovers */
+.newsfoot-footnote-popover {
+	background: var(--mosaic-footnote-bg);
+	box-shadow: 2px 2px 0 #000;
+	color: var(--mosaic-footnote-fg);
+	padding: 1px;
+}
+.newsfoot-footnote-popover-arrow {
+	background: var(--mosaic-footnote-pop-bg);
+	border: 1px solid var(--mosaic-footnote-bg);
+}
+.newsfoot-footnote-popover-inner {
+	background: var(--mosaic-footnote-pop-bg);
+	color: var(--mosaic-footnote-pop-fg);
+}
+body a.footnote,
+body a.footnote:visited,
+.newsfoot-footnote-popover + a.footnote:hover {
+	background: var(--mosaic-footnote-bg);
+	color: var(--mosaic-footnote-fg);
+}
+a.footnote:hover,
+.newsfoot-footnote-popover + a.footnote {
+	background: var(--mosaic-footnote-hover-bg);
+	color: var(--mosaic-footnote-fg);
+}
+
+/* iOS Specific */
+@supports (-webkit-touch-callout: none) {
+	body {
+		margin-top: 3px;
+		margin-bottom: 20px;
+		padding-left: 20px;
+		padding-right: 20px;
+		word-break: break-word;
+		-webkit-hyphens: auto;
+		-webkit-text-size-adjust: none;
+		font-family: "Times New Roman", Times, serif;
+		font-size: [[font-size]]px;
+	}
+	.articleTitle h1 {
+		font-size: 1.6em;
+	}
+}
+
+/* macOS Specific */
+@supports not (-webkit-touch-callout: none) {
+	body {
+		margin-top: 20px;
+		margin-bottom: 64px;
+		padding-left: 48px;
+		padding-right: 48px;
+		font-family: "Times New Roman", Times, serif;
+	}
+	.smallText   { font-size: 15px; }
+	.mediumText  { font-size: 17px; }
+	.largeText   { font-size: 19px; }
+	.xlargeText  { font-size: 21px; }
+	.xxlargeText { font-size: 23px; }
+}
